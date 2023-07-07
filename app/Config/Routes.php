@@ -2,6 +2,7 @@
 namespace Config;
 use App\Controllers\Inquiry;
 use App\Controllers\Question;
+use App\Controllers\EmailCollection;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -34,6 +35,8 @@ $routes->get('/', 'Home::index');
 // $routes->get('pages', 'Home::index');
 $routes->post('/question/insert', [Question::class,'insert']);
 $routes->post('/inquiry/insert', [Inquiry::class,'insert']);
+$routes->post('/email/insert', [EmailCollection::class,'insert']);
+$routes->get('/inquiry/getRecords', [Inquiry::class,'getRecords']);
 
 
 //CORS OPTION REQUEST
