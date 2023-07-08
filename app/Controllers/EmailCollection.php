@@ -90,7 +90,7 @@ class EmailCollection extends BaseController
 
         $returnData = array(
             "status" => $insertId ? true : false,
-        );
+        );  
         echo json_encode($returnData);
 
     }
