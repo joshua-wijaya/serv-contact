@@ -24,6 +24,8 @@ class EmailCollection extends BaseController
             'SMTPUser' => getenv("SMTP_USER"), // Replace with your Google Workspace email address
             'SMTPPass' => getenv("SMTP_PASS"), // Replace with your Google Workspace email password
             'mailType' => 'html',
+            'wordWrap' => true,
+            'wrapChars' => 70,
             'charset' => 'utf-8',
             'newline' => "\r\n"
         ];
@@ -36,8 +38,14 @@ class EmailCollection extends BaseController
             "sean.michael@tokeninlah.com",
         );
         $email->setBCC($bcc);
-        $email->setSubject('Test email');
-        $email->setMessage('This is a test email sent from CodeIgniter 4.');
+        $email->setSubject('Download Our Company Profile: Unlock the Possibilities for Your Success');
+        $email->setMessage('Thank you for your interest in Tokeninlah. We appreciate your desire to learn more about our organization. As promised, we are delighted to provide you with an exclusive opportunity to download our comprehensive company profile.<br/>
+        <br/>
+        Once you\'ve had the chance to explore our company profile, we would be thrilled to hear your thoughts and answer any questions you may have. Don\'t hesitate to reach out to our team at info@tokeninlah.com. We value your feedback and are always ready to engage in meaningful conversations.
+        <br/>
+        <br/>
+        Best regards,<br/>
+        Sean Michael - Chief Executive Officer<br/>');
         
         $path = ROOTPATH."files\\Company Profile - Tokeninlah (1).pdf";
         $email->attach($path);

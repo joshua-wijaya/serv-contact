@@ -42,7 +42,7 @@ class EmailCollectionModel extends Model
 
     protected function check_bruteforce(array $data){
 
-        $sql = "select count(id_pk_email) as jmlh_email from tbl_email_collection where email = :email: and created_at <= now() - INTERVAL 1 HOUR";
+        $sql = "select count(id_pk_email) as jmlh_email from tbl_email_collection where email = :email: and created_at >= now() - INTERVAL 1 HOUR";
         $array = array(
             "email" => $data["data"]["email"]
         );
