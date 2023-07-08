@@ -36,6 +36,7 @@ $routes->get('/', 'Home::index');
 $routes->post('/question/insert', [Question::class,'insert']);
 $routes->post('/inquiry/insert', [Inquiry::class,'insert']);
 $routes->post('/email/insert', [EmailCollection::class,'insert']);
+$routes->get('/email', [EmailCollection::class,'index']);
 $routes->get('/inquiry/getRecords', [Inquiry::class,'getRecords']);
 
 
