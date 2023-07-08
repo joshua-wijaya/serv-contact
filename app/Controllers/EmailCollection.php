@@ -41,11 +41,12 @@ class EmailCollection extends BaseController
         
         $path = ROOTPATH."files\\Company Profile - Tokeninlah (1).pdf";
         $email->attach($path);
+        // ini risknya kalau ada orang ngespam ke email yg sama berkali2
 
         if ($email->send()) {
             // echo 'Email sent successfully!';
         } else {
-            echo $email->printDebugger();
+            // echo $email->printDebugger();
         }
     }
     public function insert()
@@ -75,13 +76,14 @@ class EmailCollection extends BaseController
         $emailCollectionModel = new EmailCollectionModel();
         $insertId = $emailCollectionModel->insert($insertData);
         
+        if($insertId){
+            $this->sendEmail($data["email"]);
+        }
+
         $returnData = array(
             "status" => $insertId ? true : false,
         );
         echo json_encode($returnData);
 
-        if($insertId){
-            $this->sendEmail($data["email"]);
-        }
     }
 }
